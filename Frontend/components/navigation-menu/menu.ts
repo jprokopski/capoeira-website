@@ -15,5 +15,4 @@ export const menu: { title: string; href: string }[] = [
     title: "Ladainha",
     href: "/ladainha",
   },
-  
 ]

@@ -15,8 +15,6 @@ import lightLogo from "../../public/logo/light.png"
 import darkLogo from "../../public/logo/dark.png"
 import { menu } from "./menu"
 
-
-
 export function NavBar() {
   const { setTheme, theme } = useTheme()
   const handleClick = () => {
@@ -27,11 +25,15 @@ export function NavBar() {
   return (
     <header className="flex items-center sticky p-2 top-0 z-50 w-full border-b border-border/50">
       <img
-        src={theme == "dark" ? darkLogo.src : lightLogo.src}
-        alt="Logo"
-        className="h-12 w-12 mr-2"
+        src={lightLogo.src}
+        alt="light logo"
+        className="size-10 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 mr-2"
       />
-
+      <img
+        src={darkLogo.src}
+        alt="dark logo"
+        className="absolute size-10 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 mr-2"
+      />
       <div className="flex-1">
         <NavigationMenu>
           <NavigationMenuList>
@@ -47,7 +49,6 @@ export function NavBar() {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-
       <div className="flex">
         <NavigationMenu>
           <NavigationMenuList>
