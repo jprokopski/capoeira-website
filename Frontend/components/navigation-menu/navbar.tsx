@@ -23,7 +23,7 @@ export function NavBar() {
   }
 
   return (
-    <header className="flex items-center sticky p-2 top-0 z-50 w-full border-b border-border/50">
+    <header className="flex items-center p-2 top-0 z-50 w-full border-b border-border/50">
       <img
         src={lightLogo.src}
         alt="light logo"
