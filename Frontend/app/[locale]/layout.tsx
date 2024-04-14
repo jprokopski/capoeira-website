@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import { Red_Hat_Mono } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "../components/theme-provider"
+import { ThemeProvider } from "../../components/theme-provider"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 const redHatMono = Red_Hat_Mono({ subsets: ["latin"] })
 
@@ -12,11 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+  params: { locale },
+}: {
   children: React.ReactNode
-}>) {
+  params: { locale: string }
+}) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={redHatMono.className}>
         <ThemeProvider
           attribute="class"
@@ -24,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </ThemeProvider>
       </body>
     </html>
