@@ -26,7 +26,8 @@ import { BR, GB, PL } from "country-flag-icons/react/3x2"
 import { SelectIcon } from "@radix-ui/react-select"
 import { useLocale } from "next-intl"
 import { useTransition } from "react"
-import { usePathname, useRouter } from "next/navigation"
+import { useRouter, usePathname } from "../../lib/translation/navigation"
+import { useParams } from "next/navigation"
 
 export function NavBar() {
   const { setTheme, theme } = useTheme()
@@ -37,12 +38,17 @@ export function NavBar() {
 
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
-  const pathname = usePathname()
   const locale = useLocale()
+  const pathname = usePathname()
+  const params = useParams()
 
-  const onLanguageChange = (event: string) => {
+  function onLanguageChange(locale: string) {
     startTransition(() => {
-      router.replace(`${pathname}${event}`)
+      router.replace(
+        // @ts-expect-error
+        { pathname, params },
+        { locale: locale }
+      )
     })
   }
 
