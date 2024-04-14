@@ -1,6 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    output: "standalone"
-};
+import createNextIntlPlugin from "next-intl/plugin"
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./lib/translation/i18n.ts")
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
+
+export default withNextIntl(nextConfig)

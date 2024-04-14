@@ -1,7 +1,10 @@
-import lightBerimbao from "../../public/berimbao/light.png"
-import darkBerimbao from "../../public/berimbao/dark.png"
+import lightBerimbao from "../../../public/berimbao/light.png"
+import darkBerimbao from "../../../public/berimbao/dark.png"
+import { useTranslations } from "next-intl"
 
 export default function Home() {
+  const t = useTranslations("root")
+
   return (
     <div className="flex justify-center items-center h-full w-full gap-1">
       <div className="flex flex-col items-center">
@@ -18,10 +21,8 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold">
-            Bem-vindo à página da capoeira!
-          </h1>
-          <p className="text-lg mt-4">Página em desenvolvimento</p>
+          <h1 className="text-4xl font-bold">{t("header")}</h1>
+          <p className="text-lg mt-4">{t("paragraph")}</p>
         </div>
       </div>
     </div>
