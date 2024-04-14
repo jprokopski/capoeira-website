@@ -23,17 +23,19 @@ export function NavBar() {
   }
 
   return (
-    <header className="flex items-center p-2 top-0 z-50 w-full border-b border-border/50">
-      <img
-        src={lightLogo.src}
-        alt="light logo"
-        className="size-10 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 mr-2"
-      />
-      <img
-        src={darkLogo.src}
-        alt="dark logo"
-        className="absolute size-10 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 mr-2"
-      />
+    <header className="flex items-center p-2 top-0 z-50 w-full border-b">
+      <Link href="/" className="contents">
+        <img
+          src={lightLogo.src}
+          alt="light logo"
+          className="size-10 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 mr-2"
+        />
+        <img
+          src={darkLogo.src}
+          alt="dark logo"
+          className="absolute size-10 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 mr-2"
+        />
+      </Link>
       <div className="flex-1">
         <NavigationMenu>
           <NavigationMenuList>

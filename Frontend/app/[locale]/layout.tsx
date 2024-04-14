@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Red_Hat_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "../../components/theme-provider"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 const redHatMono = Red_Hat_Mono({ subsets: ["latin"] })
 
@@ -26,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </ThemeProvider>
       </body>
     </html>
